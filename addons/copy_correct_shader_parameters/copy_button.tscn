@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://b8iyl1mvyaq85"]
+
+[node name="CopyButton" type="Button"]
+text = "Copy"

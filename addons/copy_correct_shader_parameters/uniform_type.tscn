@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvs2f80itsfj7"]
+
+[sub_resource type="SystemFont" id="SystemFont_yjph6"]
+font_names = PackedStringArray("Monospace")
+font_weight = 600
+
+[node name="UniformType" type="Label"]
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("SystemFont_yjph6")
+text = "UniformType"

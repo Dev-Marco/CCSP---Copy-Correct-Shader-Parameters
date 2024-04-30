@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b3654gyapwvnx"]
+
+[node name="UniformName" type="LineEdit"]
+size_flags_horizontal = 3
+text = "UniformName"
+editable = false
