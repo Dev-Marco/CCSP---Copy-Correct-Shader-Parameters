@@ -44,21 +44,63 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Settings"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="SettingCopyOnClick" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/SettingCopyOnClick"]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Allows instant copy to clipboard of the parameter name by clicking on it."
 mouse_filter = 0
 text = "Copy on click"
 
-[node name="CopyOnClickCheckButton" type="CheckBox" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CopyOnClickCheckButton" type="CheckBox" parent="Panel/MarginContainer/VBoxContainer/SettingCopyOnClick"]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Allows instant copy to clipboard of the parameter name by clicking on it."
 button_pressed = true
 text = "On"
+
+[node name="SettingAddQuotes" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/SettingAddQuotes"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Activate this setting if you want to encapsulate the copied string literal in quotes."
+mouse_filter = 0
+text = "Add Quotes"
+
+[node name="AddQuotesCheckButton" type="CheckBox" parent="Panel/MarginContainer/VBoxContainer/SettingAddQuotes"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Activate this setting if you want to encapsulate the copied string literal in quotes."
+text = "On"
+
+[node name="SettingRespectEditorSettings" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/SettingRespectEditorSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Select which quote type to apply to the copied string literal."
+mouse_filter = 0
+text = "-    Quotes"
+
+[node name="QuoteSettingsOptionButton" type="OptionButton" parent="Panel/MarginContainer/VBoxContainer/SettingRespectEditorSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Select which quote type to apply to the copied string literal."
+button_pressed = true
+item_count = 3
+selected = 0
+popup/item_0/text = "Editor Settings (Default)"
+popup/item_0/id = 0
+popup/item_1/text = "Use Single Quotes"
+popup/item_1/id = 1
+popup/item_2/text = "Use Double Quotes"
+popup/item_2/id = 2
 
 [node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2

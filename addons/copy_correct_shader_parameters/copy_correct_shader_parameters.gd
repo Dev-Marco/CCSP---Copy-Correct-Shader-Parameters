@@ -1,15 +1,24 @@
 @tool
 extends EditorPlugin
 
+var editor_settings: EditorSettings
+
 var dock: Control
 var file_dialog: FileDialog
 var load_shader_button: Button
 var reload_button: Button
 var copy_on_click: CheckBox
+var add_quotes: CheckBox
+var setting_respect_editor_settings: HBoxContainer
+var respect_editor_settings: OptionButton
+
+
 var selected_file: String
 
 
 func _enter_tree() -> void:
+	editor_settings = EditorInterface.get_editor_settings()
+
 	dock = preload('res://addons/copy_correct_shader_parameters/dock.tscn').instantiate()
 	dock.name = 'Correct Shader Parameter'
 	add_control_to_dock(EditorPlugin.DOCK_SLOT_RIGHT_BL, dock)
@@ -29,6 +38,11 @@ func _enter_tree() -> void:
 
 	copy_on_click = dock.find_child('CopyOnClickCheckButton')
 
+	add_quotes = dock.find_child('AddQuotesCheckButton')
+	add_quotes.pressed.connect(_on_add_quotes_pressed)
+	setting_respect_editor_settings = dock.find_child('SettingRespectEditorSettings')
+	respect_editor_settings = dock.find_child('QuoteSettingsOptionButton')
+
 	dock.add_child(file_dialog)
 
 
@@ -39,6 +53,7 @@ func _exit_tree() -> void:
 	load_shader_button.queue_free()
 	reload_button.pressed.disconnect(_on_reload_button_pressed)
 	reload_button.queue_free()
+	add_quotes.pressed.disconnect(_on_add_quotes_pressed)
 
 	_reset_grid()
 	remove_control_from_docks(dock)
@@ -75,6 +90,7 @@ func _load_shader_parameters(path: String):
 
 
 func _on_load_shader_button_pressed() -> void:
+	print(editor_settings.get_setting('text_editor/completion/use_single_quotes'))
 	file_dialog.popup_centered(Vector2i(900, 600))
 	file_dialog.get_vbox().get_child(3).get_child(2).disabled = true
 
@@ -92,7 +108,18 @@ func _on_uniform_name_clicked(event: InputEvent, name: String, line_edit: LineEd
 			_copy_uniform_name_to_clipboard(name)
 
 
+func _on_add_quotes_pressed() -> void:
+	setting_respect_editor_settings.visible = add_quotes.button_pressed
+
+
 func _copy_uniform_name_to_clipboard(name: String) -> void:
+	var single_quotes: bool = respect_editor_settings.get_selected_id() == 1 or \
+		respect_editor_settings.get_selected_id() == 0 and \
+		editor_settings.get_setting('text_editor/completion/use_single_quotes')
+
+	if add_quotes.button_pressed:
+		name = "'%s'" % name if single_quotes else '"%s"' % name
+
 	DisplayServer.clipboard_set(name)
 
 
