@@ -1,4 +1,4 @@
-# CCN - Correct Conventional Naming Plugin for Godot
+# CCSP - Copy Correct Shader Parameters
 
 ## Overview
 This plugin for the Godot Engine adds an extra dock that showcases all parameters of a selected shader, which can be manipulated via code (also known as uniforms). The dock features a clean and readable table-like layout, presenting each parameter's name required for addressing it, along with its expected data type.
@@ -15,29 +15,28 @@ It also offers the functionality to copy a parameter's name to the clipboard by 
 
 ## Installation
 1. Clone or download this repository.
-2. Copy the `addons/correct_conventional_naming` folder into the `addons` directory of your Godot project.
+2. Copy the `addons/copy_correct_shader_parameters` folder into the `addons` directory of your Godot project.
 3. In Godot, go to `Project` -> `Project Settings` -> `Plugins`.
-4. Find "Correct Conventional Naming" in the list and click "Activate".
+4. Find "Copy Correct Shader Parameters" in the list and click "Activate".
 
 ## Usage
-Once the plugin is activated, every time you attach a script to a node:
-1. In the default dialog there will appear a new setting for you to choose the naming convention for the script.
+1. Once the plugin is activated, the new dock will appear on the right side of the engine.
 
-![Alt Text](/screenshots/attach_node_script.png?raw=true "The new setting")
+![Alt Text](/screenshots/dock_empty.png?raw=true "The new dock")
 
-2. Select your preferred naming style.
+2. Click on _Load Shader_ to open a file dialog to select a `.gdshader` file.
 
-![Alt Text](/screenshots/attach_node_script_select.png?raw=true "Select the naming convention")
+![Alt Text](/screenshots/select_shader_dialog.png?raw=true "Select the shader file")
 
-3. The script name will be automatically adjusted in the preview field according to your selection. Just hit apply if you're happy with it and click create afterwards.
+3. Once a shader file is selected, the dock will list the uniform parameters that were found in that shader.
 
-![Alt Text](/screenshots/attach_node_script_snake_case.png?raw=true "Preview and apply the new name")
+![Alt Text](/screenshots/shader_selected.png?raw=true "See the uniforms of the shader")
 
 ## Compatibility
-As of now, this plugin has been tested and confirmed to work on Godot 4.2.1, as this is the version I am currently using.
+As of now, this plugin has been tested and confirmed to work on Godot 4.2.2, as this is the version I am currently using. Version 4.0.0 stable lacks a function necessary for displaying the type of the uniform. If there are requests for it to work on that version I will be looking into solving this.
 
 ## Contributing
-Contributions to the plugin are welcome! If you have suggestions for improvements or have found a bug, please open an issue or a pull request. Also testing on other versions has not yet been conducted. If you are using a different version of Godot and would like to contribute, please feel free to test the plugin and provide feedback on compatibility with other versions.
+Contributions to the plugin are welcome! If you have suggestions for improvements or have found a bug, please open an issue or a pull request.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
