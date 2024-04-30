@@ -8,10 +8,11 @@ It also offers the functionality to copy a parameter's name to the clipboard by 
 ## Features
 - **A useful custom dock**: Either place the dock in the dedicated slots of the Godot Engine or make it floating and place it freely whereever you want.
 - **Simple Shader Selection**: Easy selection of `.gdshader` files through the _Load Shader_ button.
-- **Easy to read List of Parameters**: After loading a shader file the uniform parameters are listed easy to read in a scrollable list _(see Screenshots)_.
+- **Easy to read list of Parameters**: After loading a shader file the uniform parameters are listed easy to read in a scrollable list _(see Screenshots)_.
 - **Reload to update the list**: If you added or removed some uniforms in the selected shader file simply press _Reload_ to update the overview.
 - **Copy Button**: To prevent misspelled string literals by manual typing simply click the _Copy_ Button to copy the name of the uniform to your clipboard.
 - **Copy on click**: Alternatively, by enabling the setting _Copy on Click_ in the top, you can also copy the uniform name to the clipboard by simply clicking on the name itself _(Activated by default)_.
+- **Add quotes to copied name**: By activating the _Add Quotes_ setting quotes will be automatically applied to the copied name. By default the editor settings will be respected. Other possible choices are single (`''`) and double quotes (`""`)
 
 ## Installation
 1. Clone or download this repository.
