@@ -11,6 +11,7 @@ var copy_on_click: CheckBox
 var add_quotes: CheckBox
 var setting_respect_editor_settings: HBoxContainer
 var respect_editor_settings: OptionButton
+var shader_name: Label
 
 
 var selected_file: String
@@ -43,6 +44,8 @@ func _enter_tree() -> void:
 	setting_respect_editor_settings = dock.find_child('SettingRespectEditorSettings')
 	respect_editor_settings = dock.find_child('QuoteSettingsOptionButton')
 
+	shader_name = dock.find_child('CSPShaderName')
+
 	dock.add_child(file_dialog)
 
 
@@ -65,6 +68,10 @@ func _load_shader_parameters(path: String):
 		return
 
 	reload_button.disabled = false
+	var substring: String = path.substr(path.rfind('/') + 1)
+	substring = substring.substr(0, substring.length() - 9)
+	shader_name.text = substring
+	shader_name.get_parent().tooltip_text = substring
 	_reset_grid()
 	selected_file = path
 	var shader = load(path)

@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cppsso502e64u"]
+[gd_scene load_steps=3 format=3 uid="uid://cppsso502e64u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wa0x3"]
 bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_yau4y"]
+font_names = PackedStringArray("Monospace")
+font_weight = 600
 
 [node name="Dock" type="Control"]
 clip_contents = true
@@ -109,6 +113,25 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Shader Overview"
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer2"]
+clip_contents = true
+layout_mode = 2
+
+[node name="CurrentShader" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Current Shader: "
+
+[node name="CSPShaderName" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_yau4y")
+theme_override_font_sizes/font_size = 16
+text = "None"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
