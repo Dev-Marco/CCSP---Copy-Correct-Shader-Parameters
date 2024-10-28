@@ -23,8 +23,6 @@ It also offers the functionality to copy a parameter's name to the clipboard by 
 ## Usage
 1. Once the plugin is activated, the new dock will appear on the right side of the engine.
 
-![Alt Text](/screenshots/dock_empty.png?raw=true "The new dock")
-
 2. Click on _Load Shader_ to open a file dialog to select a `.gdshader` file.
 
 ![Alt Text](/screenshots/select_shader_dialog.png?raw=true "Select the shader file")
